@@ -11,9 +11,9 @@ services:
     volumes:
       - "./data:/data"
       - "/var/log:/var/log:ro"
-      - ./portsentry/logs:/var/run/portsentry
+      - ./portsentry-v1.2/logs:/var/run/portsentry
       # /data/jail.d, /data/action.d and /data/filter.d
-      - ./portsentry/portsentry.local:/data/jail.d/portsentry.local
+      - ./portsentry-v1.2/portsentry.local:/data/jail.d/portsentry.local
     env_file:
       - "./fail2ban.env"
     restart: always
@@ -26,7 +26,7 @@ services:
     volumes:
 # Add a custom config file
       - type: bind
-        source: ./portsentry/portsentry.conf
+        source: ./portsentry-v1.2/portsentry.conf
         target: /etc/portsentry/portsentry.conf
         read_only: true
 # Add a custom ignore file
@@ -35,5 +35,5 @@ services:
 #        target: /etc/portsentry/portsentry.ignore
 # If you want access to portsentrys runtime-generated files (history and block log)
       - type: bind
-        source: ./portsentry/logs
+        source: ./portsentry-v1.2/logs
         target: /var/run/portsentry

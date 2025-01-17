@@ -25,10 +25,10 @@ services:
     network_mode: host
     volumes:
 # Add a custom config file
-      - type: bind
-        source: ./portsentry-v1.2/portsentry.conf
-        target: /etc/portsentry/portsentry.conf
-        read_only: true
+#     - type: bind
+#       source: <path-to>/portsentry.conf
+#       target: /etc/portsentry/portsentry.conf
+#       read_only: true
 # Add a custom ignore file
 #      - type: bind
 #        source: <path-to>/portsentry.ignore
